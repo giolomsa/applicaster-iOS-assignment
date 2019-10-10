@@ -77,12 +77,13 @@
 		5E9A4FE8234FF0CA00E07BAF /* ApplicasteriOS */ = {
 			isa = PBXGroup;
 			children = (
-				5E9A4FE9234FF0CA00E07BAF /* AppDelegate.swift */,
-				5E9A4FEB234FF0CA00E07BAF /* ViewController.swift */,
-				5E9A4FED234FF0CA00E07BAF /* Main.storyboard */,
-				5E9A4FF0234FF0CC00E07BAF /* Assets.xcassets */,
-				5E9A4FF2234FF0CC00E07BAF /* LaunchScreen.storyboard */,
-				5E9A4FF5234FF0CC00E07BAF /* Info.plist */,
+				5E9A500F234FF1A400E07BAF /* Resources */,
+				5E9A500E234FF18500E07BAF /* Storyboards */,
+				5E9A500D234FF17900E07BAF /* Networking */,
+				5E9A500C234FF17100E07BAF /* SupportingFiles */,
+				5E9A500B234FF16500E07BAF /* ViewModels */,
+				5E9A500A234FF15300E07BAF /* Models */,
+				5E9A5009234FF14D00E07BAF /* Views */,
 			);
 			path = ApplicasteriOS;
 			sourceTree = "<group>";
@@ -94,6 +95,61 @@
 				5E9A5000234FF0CC00E07BAF /* Info.plist */,
 			);
 			path = ApplicasteriOSTests;
+			sourceTree = "<group>";
+		};
+		5E9A5009234FF14D00E07BAF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5E9A4FEB234FF0CA00E07BAF /* ViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5E9A500A234FF15300E07BAF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5E9A500B234FF16500E07BAF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		5E9A500C234FF17100E07BAF /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				5E9A4FE9234FF0CA00E07BAF /* AppDelegate.swift */,
+				5E9A4FF5234FF0CC00E07BAF /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		5E9A500D234FF17900E07BAF /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		5E9A500E234FF18500E07BAF /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				5E9A4FED234FF0CA00E07BAF /* Main.storyboard */,
+				5E9A4FF2234FF0CC00E07BAF /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		5E9A500F234FF1A400E07BAF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5E9A4FF0234FF0CC00E07BAF /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,7 +418,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7F8AA547EL;
-				INFOPLIST_FILE = ApplicasteriOS/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ApplicasteriOS/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -380,7 +436,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7F8AA547EL;
-				INFOPLIST_FILE = ApplicasteriOS/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ApplicasteriOS/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
