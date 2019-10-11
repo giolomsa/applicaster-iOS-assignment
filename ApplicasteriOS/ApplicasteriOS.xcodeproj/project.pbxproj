@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		5E9A4FEA234FF0CA00E07BAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A4FE9234FF0CA00E07BAF /* AppDelegate.swift */; };
-		5E9A4FEC234FF0CA00E07BAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A4FEB234FF0CA00E07BAF /* ViewController.swift */; };
+		5E9A4FEC234FF0CA00E07BAF /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A4FEB234FF0CA00E07BAF /* RootViewController.swift */; };
 		5E9A4FEF234FF0CA00E07BAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E9A4FED234FF0CA00E07BAF /* Main.storyboard */; };
 		5E9A4FF1234FF0CC00E07BAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E9A4FF0234FF0CC00E07BAF /* Assets.xcassets */; };
 		5E9A4FF4234FF0CC00E07BAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E9A4FF2234FF0CC00E07BAF /* LaunchScreen.storyboard */; };
 		5E9A4FFF234FF0CC00E07BAF /* ApplicasteriOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A4FFE234FF0CC00E07BAF /* ApplicasteriOSTests.swift */; };
+		5E9A5011234FF27000E07BAF /* HTTPLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A5010234FF27000E07BAF /* HTTPLayer.swift */; };
+		5E9A5013234FF2BB00E07BAF /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A5012234FF2BB00E07BAF /* APIClient.swift */; };
+		5E9A5016234FF30500E07BAF /* Int-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A5015234FF30500E07BAF /* Int-Extensions.swift */; };
+		5E9A5018234FF74700E07BAF /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A5017234FF74700E07BAF /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +32,7 @@
 /* Begin PBXFileReference section */
 		5E9A4FE6234FF0CA00E07BAF /* ApplicasteriOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApplicasteriOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E9A4FE9234FF0CA00E07BAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5E9A4FEB234FF0CA00E07BAF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5E9A4FEB234FF0CA00E07BAF /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		5E9A4FEE234FF0CA00E07BAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5E9A4FF0234FF0CC00E07BAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E9A4FF3234FF0CC00E07BAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +40,10 @@
 		5E9A4FFA234FF0CC00E07BAF /* ApplicasteriOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApplicasteriOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E9A4FFE234FF0CC00E07BAF /* ApplicasteriOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicasteriOSTests.swift; sourceTree = "<group>"; };
 		5E9A5000234FF0CC00E07BAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E9A5010234FF27000E07BAF /* HTTPLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPLayer.swift; sourceTree = "<group>"; };
+		5E9A5012234FF2BB00E07BAF /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		5E9A5015234FF30500E07BAF /* Int-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int-Extensions.swift"; sourceTree = "<group>"; };
+		5E9A5017234FF74700E07BAF /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +85,7 @@
 		5E9A4FE8234FF0CA00E07BAF /* ApplicasteriOS */ = {
 			isa = PBXGroup;
 			children = (
+				5E9A5014234FF2F800E07BAF /* Extensions */,
 				5E9A500F234FF1A400E07BAF /* Resources */,
 				5E9A500E234FF18500E07BAF /* Storyboards */,
 				5E9A500D234FF17900E07BAF /* Networking */,
@@ -100,7 +109,7 @@
 		5E9A5009234FF14D00E07BAF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5E9A4FEB234FF0CA00E07BAF /* ViewController.swift */,
+				5E9A4FEB234FF0CA00E07BAF /* RootViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -108,6 +117,7 @@
 		5E9A500A234FF15300E07BAF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5E9A5017234FF74700E07BAF /* Post.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -131,6 +141,8 @@
 		5E9A500D234FF17900E07BAF /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				5E9A5010234FF27000E07BAF /* HTTPLayer.swift */,
+				5E9A5012234FF2BB00E07BAF /* APIClient.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -150,6 +162,14 @@
 				5E9A4FF0234FF0CC00E07BAF /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		5E9A5014234FF2F800E07BAF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5E9A5015234FF30500E07BAF /* Int-Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,8 +273,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E9A4FEC234FF0CA00E07BAF /* ViewController.swift in Sources */,
+				5E9A5016234FF30500E07BAF /* Int-Extensions.swift in Sources */,
+				5E9A4FEC234FF0CA00E07BAF /* RootViewController.swift in Sources */,
 				5E9A4FEA234FF0CA00E07BAF /* AppDelegate.swift in Sources */,
+				5E9A5018234FF74700E07BAF /* Post.swift in Sources */,
+				5E9A5011234FF27000E07BAF /* HTTPLayer.swift in Sources */,
+				5E9A5013234FF2BB00E07BAF /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
