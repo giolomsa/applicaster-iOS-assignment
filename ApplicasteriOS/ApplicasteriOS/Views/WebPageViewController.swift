@@ -12,26 +12,40 @@ import WebKit
 class WebPageViewController: UIViewController {
 
     var selectedPostUrlString: String?
-    var webView: WKWebView!
+    
+    //MARK:- IBOutlets
+    @IBOutlet weak var webView: WKWebView!    
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        if let string = self.selectedPostUrlString{
-            print(string)
+        activityIndicator.startAnimating()
+        webView.uiDelegate = self
+        webView.navigationDelegate = self
+        
+        customizeUI()
+        loadWebPage()
+}
+
+    //MARK:- private methods
+    private func loadWebPage(){
+        guard let urlString = selectedPostUrlString,
+            let postUrl = URL(string: urlString)else{
+                showErrorAlert(); return
+                
         }
+        let request = URLRequest(url: postUrl)
+        self.webView.load(request)
+    }
+
+    private func customizeUI(){
+        loadingView.layer.cornerRadius = 10.0
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func showErrorAlert(){
+        
     }
-    */
-
 }
