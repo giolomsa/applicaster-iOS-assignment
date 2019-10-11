@@ -9,22 +9,33 @@
 import UIKit
 
 class RootViewController: UIViewController {
-
+    
+    //MARK:- Variables/Constants
+    let viewModel = RootViewModel()
+    
+    //MARK:- IBOutlets
+    @IBOutlet weak var postsTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let httpLayer = HTTPLayer()
-        let networking = APIClient(httpLayer: httpLayer)
+        postsTableView.delegate = self
+        postsTableView.dataSource = self
         
-        networking.getFeedElements { (result) in
-            switch result{
-            case .success(let elements):
-                print("data")
-                print(elements)
-            case .failure(let error):
-                print(error)
-            }
-        }
+//        let httpLayer = HTTPLayer()
+//        let networking = APIClient(httpLayer: httpLayer)
+        
+        manageObservers()
+        viewModel.loadPosts()
+    }
+    
+    //add observers
+    private func manageObservers(){
+        NotificationCenter.default.addObserver(self, selector: #selector(updateUIFromViewModel), name: RootViewModel.postsWereSetNotification, object: nil)
+    }
+    
+    @objc private func updateUIFromViewModel(){
+        
     }
 
 
