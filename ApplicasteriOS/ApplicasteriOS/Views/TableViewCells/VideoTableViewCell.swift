@@ -10,9 +10,15 @@ import UIKit
 
 class VideoTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var postImageView: UIImageView!
+    @IBOutlet weak var postTitleLabel: UILabel!    
+    @IBOutlet weak var postPublishedLabel: UILabel!
+    @IBOutlet weak var playButtonBackgroundView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        playButtonBackgroundView.layer.cornerRadius = playButtonBackgroundView.frame.width / 2
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

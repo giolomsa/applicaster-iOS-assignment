@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
 class RootViewController: UIViewController {
     
     //MARK:- Variables/Constants
     let viewModel = RootViewModel()
+    var selectedPostUrlString: String?
     
     //MARK:- IBOutlets
     @IBOutlet weak var postsTableView: UITableView!
@@ -19,6 +22,7 @@ class RootViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.title = "Posts"
         postsTableView.delegate = self
         postsTableView.dataSource = self
         
@@ -36,6 +40,29 @@ class RootViewController: UIViewController {
     
     @objc private func updateUIFromViewModel(){
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? WebPageViewController,
+            segue.identifier == "WebPageVCSegue",
+            let selectedPostUrlString = self.selectedPostUrlString{
+            destination.selectedPostUrlString = selectedPostUrlString
+        }
+    }
+    
+    //MARK:- class methods
+    func playVideo(urlString: String){
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        let player = AVPlayer(url: url)
+        let vc = AVPlayerViewController()
+        vc.player = player
+        
+        present(vc, animated: true) {
+            vc.player?.play()
+        }
+
     }
 
 

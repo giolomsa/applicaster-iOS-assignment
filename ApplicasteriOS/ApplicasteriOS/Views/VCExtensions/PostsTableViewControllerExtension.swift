@@ -21,16 +21,40 @@ extension RootViewController: UITableViewDataSource, UITableViewDelegate{
         case .link:
             if let cell = postsTableView.dequeueReusableCell(withIdentifier: "LinkTableViewCell", for: indexPath) as? LinkTableViewCell{
                 let currentPost = self.viewModel.posts[indexPath.row]
-                cell.textLabel?.text = currentPost.title
+                cell.postTitleLabel.text = "\(currentPost.title) link"
+                return cell
+            }else{
+                return UITableViewCell()
             }
+            
         case .video:
             if let cell = postsTableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell", for: indexPath) as? VideoTableViewCell{
                 let currentPost = self.viewModel.posts[indexPath.row]
-                cell.textLabel?.text = currentPost.title
+                cell.postTitleLabel.text = "\(currentPost.title) Video"
+                
+                return cell
+            }else{
+                return UITableViewCell()
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedPost = viewModel.posts[indexPath.row]
         
-        return UITableViewCell()
+        switch selectedPost.postType{
+        case .link:
+            print("link")
+            if let urlString = selectedPost.link{
+                  self.selectedPostUrlString = urlString
+                performSegue(withIdentifier: "WebPageVCSegue", sender: self)
+            }
+        case .video:
+            print("video")
+            if let urlString = selectedPost.content{
+                self.playVideo(urlString: urlString)
+            }
+        }
     }
     
     

@@ -23,7 +23,7 @@ class RootViewModel{
         var tempPosts = [Post]()
         for i in 0..<10{
             let type = i % 2 == 0 ? PostType.link : PostType.video
-            let post = Post(title: "Post title", summary: "Larry has been given a permutation of a sequence of natural numbers", published: "09/09/2019", mediaGroup: "MediaGroup", mediaItem: ["1":"1"], postType: type, link: "http://", content: "http://")
+            let post = Post(title: "Post title: Larry has been given a permutation of a sequence of natural numbers Larry has been given a permutation of a sequence of natural numbers", summary: "Larry has been given a permutation of a sequence of natural numbers", published: "09/09/2019", mediaGroup: "MediaGroup", mediaItem: ["1":"1"], postType: type, link: "https://www.bbc.com/news/business-50009761", content: "https://devstreaming-cdn.apple.com/videos/streaming/examples/bipbop_adv_example_hevc/master.m3u8")
             tempPosts.append(post)
         }
         self.posts = tempPosts

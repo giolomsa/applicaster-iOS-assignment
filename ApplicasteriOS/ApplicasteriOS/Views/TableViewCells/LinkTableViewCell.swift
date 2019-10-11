@@ -10,9 +10,14 @@ import UIKit
 
 class LinkTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var postImageView: UIImageView!
+    @IBOutlet weak var postTitleLabel: UILabel!
+    @IBOutlet weak var postPublishedLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        postImageView.layer.cornerRadius = 8.0
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
