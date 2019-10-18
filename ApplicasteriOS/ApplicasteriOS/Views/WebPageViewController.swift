@@ -39,8 +39,10 @@ class WebPageViewController: UIViewController {
         }
 
         let request = URLRequest(url: postUrl)
-        self.webView.load(request)
+        
+        webView.configuration.allowsInlineMediaPlayback = true
         webView.allowsBackForwardNavigationGestures = true
+        webView.load(request)        
     }
 
     private func customizeUI(){

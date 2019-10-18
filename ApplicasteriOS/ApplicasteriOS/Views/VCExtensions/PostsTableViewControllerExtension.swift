@@ -11,17 +11,17 @@ import UIKit
 
 extension RootViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.unfilteredPosts.count
+        return viewModel.filteredPosts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let currentPost = self.viewModel.unfilteredPosts[indexPath.row]
+        let currentPost = self.viewModel.filteredPosts[indexPath.row]
         
         switch currentPost.postType{
         case .link:
             if let cell = postsTableView.dequeueReusableCell(withIdentifier: "LinkTableViewCell", for: indexPath) as? LinkTableViewCell{
                 
-                let currentPost = self.viewModel.unfilteredPosts[indexPath.row]
+                let currentPost = self.viewModel.filteredPosts[indexPath.row]
                 cell.updateCell(for: currentPost)
                 cell.tag = indexPath.row
                 
@@ -44,7 +44,7 @@ extension RootViewController: UITableViewDataSource, UITableViewDelegate{
 
         case .video:
             if let cell = postsTableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell", for: indexPath) as? VideoTableViewCell{
-                let currentPost = self.viewModel.unfilteredPosts[indexPath.row]
+                let currentPost = self.viewModel.filteredPosts[indexPath.row]
                 
                 cell.updateCell(for: currentPost)
                 cell.tag = indexPath.row
@@ -70,7 +70,7 @@ extension RootViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedPost = viewModel.unfilteredPosts[indexPath.row]
+        let selectedPost = viewModel.filteredPosts[indexPath.row]
         
         print(selectedPost)
         guard let urlString = selectedPost.link else {return}

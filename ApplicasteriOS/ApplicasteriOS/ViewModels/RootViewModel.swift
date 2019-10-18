@@ -13,7 +13,10 @@ class RootViewModel{
     
     let httpLayer = HTTPLayer()
     let apiClient: APIClient
+    
     private let imageCache = NSCache<NSString, UIImage>()
+    var filteredPosts = [Post]()
+    var _posts = [Post]()
     
     init() {
         apiClient = APIClient(httpLayer: httpLayer)
@@ -23,26 +26,53 @@ class RootViewModel{
     
     var unfilteredPosts = [Post](){
         didSet{
+            filteredPosts = unfilteredPosts
             NotificationCenter.default.post(name: RootViewModel.postsWereSetNotification, object: nil)
         }
     }
     
-    var filteredPosts = [Post](){
-        didSet{
-            NotificationCenter.default.post(name: RootViewModel.postsWereSetNotification, object: nil)
-        }
-    }
     
     func loadPosts(){
-   
-        self.apiClient.getPostsFromServer {[weak self] (result) in
-            switch result{
-            case .failure(let error):
-                print(error)
-            case .success(let posts):
-                self?.unfilteredPosts = posts
+        
+        //Create operation for downloading posts from server
+        let downloadPostsFromServer = BlockOperation{
+            let dispatchGroup = DispatchGroup()
+            
+            dispatchGroup.enter()
+            self.apiClient.getPostsFromApplicastercom{[weak self](result) in
+                switch result{
+                case .failure(let error):
+                    print(error)
+                case .success(let posts):
+                    self?._posts.append(contentsOf: posts)
+                }
+//                print("posts from Applicaster were set")
+                dispatchGroup.leave()
             }
+            
+            dispatchGroup.enter()
+            self.apiClient.getPostsFromAWS{[weak self](result) in
+                switch result{
+                case .failure(let error):
+                    print(error)
+                case .success(let posts):
+                    self?._posts.append(contentsOf: posts)
+                }
+//                print("posts from AWS were set")
+                dispatchGroup.leave()
+            }
+            dispatchGroup.wait()
         }
+        
+        let setPostsOperation = BlockOperation{
+//            print("posts were set to tableview source")
+            self.unfilteredPosts = self._posts
+        }
+        
+        setPostsOperation.addDependency(downloadPostsFromServer)
+        
+        downloadPostsFromServer.start()
+        setPostsOperation.start()
     }
     
     func loadImageFromUrl(for urlString: String, completion: @escaping(UIImage)->Void){

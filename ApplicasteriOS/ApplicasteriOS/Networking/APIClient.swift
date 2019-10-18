@@ -22,10 +22,10 @@ class APIClient{
         self.httpLayer = httpLayer
     }
     
-    //load posts
-    func getPostsFromServer(completion: @escaping (Result<[Post]>)-> Void){
+    //load posts from applicaster.com
+    func getPostsFromApplicastercom(completion: @escaping (Result<[Post]>)-> Void){
         
-        self.httpLayer.request(at: .aws) { (data, response, error) in
+        self.httpLayer.request(at: .applicastercom) { (data, response, error) in
             guard let httpResponse = response as? HTTPURLResponse,
                 httpResponse.statusCode.isSuccessHTTPCode,
                 let data = data
@@ -47,6 +47,34 @@ class APIClient{
             }
         }
     }
+    
+    //load posts from aws
+    func getPostsFromAWS(completion: @escaping (Result<[Post]>)-> Void){
+        
+        self.httpLayer.request(at: .aws) { (data, response, error) in
+            guard let httpResponse = response as? HTTPURLResponse,
+                httpResponse.statusCode.isSuccessHTTPCode,
+                let data = data
+                else {
+                    if let error = error{
+                        completion(.failure(error as NSError))
+                    }else{
+                        print(error)
+                    }
+                    return
+            }
+            do{
+                let decoder = JSONDecoder()
+                //                print(data)
+                let posts = try decoder.decode(PostsContainer.self, from: data)
+                completion(.success(posts.entry ?? []))
+            }catch let error{
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    
     
     func downloadImage(for urlString: String , completion: @escaping(Result<Data>)-> Void){
         
