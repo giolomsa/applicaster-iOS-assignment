@@ -12,7 +12,6 @@
 		5E9A4FEA234FF0CA00E07BAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A4FE9234FF0CA00E07BAF /* AppDelegate.swift */; };
 		5E9A4FEC234FF0CA00E07BAF /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A4FEB234FF0CA00E07BAF /* RootViewController.swift */; };
 		5E9A4FEF234FF0CA00E07BAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E9A4FED234FF0CA00E07BAF /* Main.storyboard */; };
-		5E9A4FF1234FF0CC00E07BAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E9A4FF0234FF0CC00E07BAF /* Assets.xcassets */; };
 		5E9A4FF4234FF0CC00E07BAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E9A4FF2234FF0CC00E07BAF /* LaunchScreen.storyboard */; };
 		5E9A4FFF234FF0CC00E07BAF /* ApplicasteriOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A4FFE234FF0CC00E07BAF /* ApplicasteriOSTests.swift */; };
 		5E9A5011234FF27000E07BAF /* HTTPLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A5010234FF27000E07BAF /* HTTPLayer.swift */; };
@@ -25,6 +24,9 @@
 		5E9A50212350035F00E07BAF /* LinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A50202350035F00E07BAF /* LinkTableViewCell.swift */; };
 		5E9A5023235014BC00E07BAF /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 5E9A5022235014BC00E07BAF /* Fonts */; };
 		5EB0A98823597827008B1674 /* UISearchResultsUpdatingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB0A98723597827008B1674 /* UISearchResultsUpdatingExtension.swift */; };
+		5EB0A98A23598CDF008B1674 /* String-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB0A98923598CDF008B1674 /* String-Extensions.swift */; };
+		5EB0A98C2359900C008B1674 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EB0A98B2359900C008B1674 /* Assets.xcassets */; };
+		5EB0A98E23599B21008B1674 /* UIScrollViewDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB0A98D23599B21008B1674 /* UIScrollViewDelegateExtension.swift */; };
 		5ED729AC2350385F00D5CB05 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ED729AB2350385F00D5CB05 /* WebKit.framework */; };
 		5EE7C12D235963AF00B66FB0 /* MediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE7C12C235963AF00B66FB0 /* MediaItem.swift */; };
 /* End PBXBuildFile section */
@@ -46,7 +48,6 @@
 		5E9A4FE9234FF0CA00E07BAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E9A4FEB234FF0CA00E07BAF /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		5E9A4FEE234FF0CA00E07BAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5E9A4FF0234FF0CC00E07BAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E9A4FF3234FF0CC00E07BAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E9A4FF5234FF0CC00E07BAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E9A4FFA234FF0CC00E07BAF /* ApplicasteriOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApplicasteriOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +63,9 @@
 		5E9A50202350035F00E07BAF /* LinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkTableViewCell.swift; sourceTree = "<group>"; };
 		5E9A5022235014BC00E07BAF /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
 		5EB0A98723597827008B1674 /* UISearchResultsUpdatingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchResultsUpdatingExtension.swift; sourceTree = "<group>"; };
+		5EB0A98923598CDF008B1674 /* String-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-Extensions.swift"; sourceTree = "<group>"; };
+		5EB0A98B2359900C008B1674 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5EB0A98D23599B21008B1674 /* UIScrollViewDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewDelegateExtension.swift; sourceTree = "<group>"; };
 		5ED729AB2350385F00D5CB05 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		5EE7C12C235963AF00B66FB0 /* MediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -196,7 +200,7 @@
 		5E9A500F234FF1A400E07BAF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5E9A4FF0234FF0CC00E07BAF /* Assets.xcassets */,
+				5EB0A98B2359900C008B1674 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -205,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				5E9A5015234FF30500E07BAF /* Int-Extensions.swift */,
+				5EB0A98923598CDF008B1674 /* String-Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -215,6 +220,7 @@
 				5E9A501C235001A100E07BAF /* PostsTableViewControllerExtension.swift */,
 				5E21FD972350302D005131BC /* WebPageViewControllerExtensions.swift */,
 				5EB0A98723597827008B1674 /* UISearchResultsUpdatingExtension.swift */,
+				5EB0A98D23599B21008B1674 /* UIScrollViewDelegateExtension.swift */,
 			);
 			path = VCExtensions;
 			sourceTree = "<group>";
@@ -309,8 +315,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E9A4FF4234FF0CC00E07BAF /* LaunchScreen.storyboard in Resources */,
-				5E9A4FF1234FF0CC00E07BAF /* Assets.xcassets in Resources */,
 				5E9A4FEF234FF0CA00E07BAF /* Main.storyboard in Resources */,
+				5EB0A98C2359900C008B1674 /* Assets.xcassets in Resources */,
 				5E9A5023235014BC00E07BAF /* Fonts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,10 +344,12 @@
 				5EB0A98823597827008B1674 /* UISearchResultsUpdatingExtension.swift in Sources */,
 				5E9A5018234FF74700E07BAF /* Post.swift in Sources */,
 				5E9A50212350035F00E07BAF /* LinkTableViewCell.swift in Sources */,
+				5EB0A98A23598CDF008B1674 /* String-Extensions.swift in Sources */,
 				5E9A5011234FF27000E07BAF /* HTTPLayer.swift in Sources */,
 				5E9A5013234FF2BB00E07BAF /* APIClient.swift in Sources */,
 				5E9A501D235001A100E07BAF /* PostsTableViewControllerExtension.swift in Sources */,
 				5E21FD9523502AB5005131BC /* WebPageViewController.swift in Sources */,
+				5EB0A98E23599B21008B1674 /* UIScrollViewDelegateExtension.swift in Sources */,
 				5E9A501F2350035500E07BAF /* VideoTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

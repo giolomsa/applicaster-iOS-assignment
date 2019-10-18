@@ -10,12 +10,17 @@ import Foundation
 import UIKit
 
 extension RootViewController: UISearchResultsUpdating{
+    
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text, !searchText.isEmpty {
-            self.viewModel.filteredPosts = self.viewModel.unfilteredPosts.filter { post in
-                return post.title.lowercased().contains(searchText.lowercased())
-            }
+            self.viewModel.filteredPosts = self.viewModel.unfilteredPosts.filter {$0.title.lowercased().contains(searchText.lowercased())}
             
+            if self.viewModel.filteredPosts.count == 0{
+                self.noResultLabel.text = "\(searchText) did not match any news."
+                self.noResultLabel.isHidden = false
+            }else{
+                self.noResultLabel.isHidden = true
+            }
         } else {
             self.viewModel.filteredPosts = self.viewModel.unfilteredPosts
         }

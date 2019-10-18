@@ -14,18 +14,20 @@ class LinkTableViewCell: UITableViewCell {
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var postTitleLabel: UILabel!
     @IBOutlet weak var postPublishedLabel: UILabel!
+    @IBOutlet weak var postSummaryTextView: UITextView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        postImageView.layer.cornerRadius = 8.0
+        postImageView.layer.cornerRadius = 0.0
         activityIndicator.startAnimating()
         postImageView.image = nil
     }
 
     func updateCell(for post: Post){
         self.postTitleLabel.text = post.title
-        self.postPublishedLabel.text = post.published ;#warning("add extension for publish date")
+        self.postSummaryTextView.text = post.summary
+        self.postPublishedLabel.text = post.published.dateStringToLocaleDateString ;#warning("add extension for publish date")
         
     }
     

@@ -11,7 +11,7 @@ import WebKit
 
 class WebPageViewController: UIViewController {
 
-    var selectedPostUrlString: String?
+    var selectedPost: Post?
     
     //MARK:- IBOutlets
     @IBOutlet weak var webView: WKWebView!    
@@ -33,7 +33,8 @@ class WebPageViewController: UIViewController {
     //MARK:- private methods
     private func loadWebPage(){
         
-        guard let urlString = selectedPostUrlString,
+        guard let selectedPost = selectedPost,
+            let urlString = selectedPost.link,
             let postUrl = URL(string: urlString)else{
                 showErrorAlert(); return                
         }
@@ -42,10 +43,12 @@ class WebPageViewController: UIViewController {
         
         webView.configuration.allowsInlineMediaPlayback = true
         webView.allowsBackForwardNavigationGestures = true
-        webView.load(request)        
+        webView.load(request)
     }
 
     private func customizeUI(){
+        navigationItem.title = selectedPost?.title
+        
         loadingView.layer.cornerRadius = 10.0
     }
     

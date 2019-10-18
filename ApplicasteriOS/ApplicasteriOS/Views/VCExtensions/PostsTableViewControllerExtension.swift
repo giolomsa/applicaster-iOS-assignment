@@ -72,13 +72,10 @@ extension RootViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedPost = viewModel.filteredPosts[indexPath.row]
         
-        print(selectedPost)
-        guard let urlString = selectedPost.link else {return}
-        
         switch selectedPost.postType{
         case .link:
             print("link")
-                  self.selectedPostUrlString = urlString
+                  self.selectedPost = selectedPost
                 performSegue(withIdentifier: "WebPageVCSegue", sender: self)
         case .video:
             print("video")
