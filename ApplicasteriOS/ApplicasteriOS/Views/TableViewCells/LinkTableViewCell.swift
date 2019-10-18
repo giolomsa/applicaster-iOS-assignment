@@ -10,6 +10,7 @@ import UIKit
 
 class LinkTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var postTitleLabel: UILabel!
     @IBOutlet weak var postPublishedLabel: UILabel!
@@ -18,8 +19,22 @@ class LinkTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         postImageView.layer.cornerRadius = 8.0
+        activityIndicator.startAnimating()
+        postImageView.image = nil
     }
 
+    func updateCell(for post: Post){
+        self.postTitleLabel.text = post.title
+        self.postPublishedLabel.text = post.published ;#warning("add extension for publish date")
+        
+    }
+    
+    func updateImage(set image: UIImage){
+        self.activityIndicator.stopAnimating()
+        self.activityIndicator.isHidden = true
+        self.postImageView.image = image
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

@@ -32,13 +32,15 @@ class WebPageViewController: UIViewController {
 
     //MARK:- private methods
     private func loadWebPage(){
+        
         guard let urlString = selectedPostUrlString,
             let postUrl = URL(string: urlString)else{
-                showErrorAlert(); return
-                
+                showErrorAlert(); return                
         }
+
         let request = URLRequest(url: postUrl)
         self.webView.load(request)
+        webView.allowsBackForwardNavigationGestures = true
     }
 
     private func customizeUI(){

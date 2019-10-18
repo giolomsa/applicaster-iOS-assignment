@@ -20,6 +20,16 @@ class VideoTableViewCell: UITableViewCell {
         // Initialization code
         playButtonBackgroundView.layer.cornerRadius = playButtonBackgroundView.frame.width / 2
     }
+    
+    func updateCell(for post: Post){
+        self.postTitleLabel.text = post.title
+        self.postPublishedLabel.text = post.published ;#warning("add extension for publish date")
+        
+    }
+    
+    func updateImage(set image: UIImage){
+        self.postImageView.image = image
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

@@ -11,26 +11,56 @@ import UIKit
 
 extension RootViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.posts.count
+        return viewModel.unfilteredPosts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let currentPost = self.viewModel.posts[indexPath.row]
+        let currentPost = self.viewModel.unfilteredPosts[indexPath.row]
         
         switch currentPost.postType{
         case .link:
             if let cell = postsTableView.dequeueReusableCell(withIdentifier: "LinkTableViewCell", for: indexPath) as? LinkTableViewCell{
-                let currentPost = self.viewModel.posts[indexPath.row]
-                cell.postTitleLabel.text = "\(currentPost.title) link"
+                
+                let currentPost = self.viewModel.unfilteredPosts[indexPath.row]
+                cell.updateCell(for: currentPost)
+                cell.tag = indexPath.row
+                
+                let imageUrl = currentPost.mediaGroup?.first?.src ?? "defaultsImageUrl"
+                
+                DispatchQueue.global(qos: .background).async {
+                    self.viewModel.loadImageFromUrl(for: imageUrl, completion: {[weak cell] (image) in
+                        DispatchQueue.main.async {
+                            if cell?.tag == indexPath.row{
+                                cell?.updateImage(set: image)
+                            }
+                        }
+                    })
+                }
+                
                 return cell
             }else{
                 return UITableViewCell()
             }
-            
+
         case .video:
             if let cell = postsTableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell", for: indexPath) as? VideoTableViewCell{
-                let currentPost = self.viewModel.posts[indexPath.row]
-                cell.postTitleLabel.text = "\(currentPost.title) Video"
+                let currentPost = self.viewModel.unfilteredPosts[indexPath.row]
+                
+                cell.updateCell(for: currentPost)
+                cell.tag = indexPath.row
+                
+                let imageUrl = currentPost.mediaGroup?.first?.src ?? "defaultsImageUrl"
+                
+                DispatchQueue.global(qos: .background).async {
+                    self.viewModel.loadImageFromUrl(for:
+                        imageUrl, completion: {[weak cell] (image) in
+                        DispatchQueue.main.async {
+                            if cell?.tag == indexPath.row{
+                                cell?.updateImage(set: image)
+                            }
+                        }
+                    })
+                }
                 
                 return cell
             }else{
@@ -40,20 +70,19 @@ extension RootViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedPost = viewModel.posts[indexPath.row]
+        let selectedPost = viewModel.unfilteredPosts[indexPath.row]
+        
+        print(selectedPost)
+        guard let urlString = selectedPost.link else {return}
         
         switch selectedPost.postType{
         case .link:
             print("link")
-            if let urlString = selectedPost.link{
                   self.selectedPostUrlString = urlString
                 performSegue(withIdentifier: "WebPageVCSegue", sender: self)
-            }
         case .video:
             print("video")
-            if let urlString = selectedPost.content{
-                self.playVideo(urlString: urlString)
-            }
+//                self.playVideo(urlString: urlString)
         }
     }
     

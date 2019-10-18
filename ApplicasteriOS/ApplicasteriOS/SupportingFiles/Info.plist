@@ -52,5 +52,7 @@
 		<string>SF-Pro-Rounded-Regular.otf</string>
 		<string>SF-Pro-Rounded-Thin.otf</string>
 	</array>
+	<key>NSLocalizedRecoverySuggestion</key>
+	<true/>
 </dict>
 </plist>

@@ -9,18 +9,21 @@
 import Foundation
 
 
-class HTTPLayer{
+class HTTPLayer: NSObject, URLSessionDelegate{
     
-    let urlSession = URLSession.shared
+    var urlSession = URLSession.shared
     
     enum Endpoint{
-        case root
+        case applicastercom
+        case aws
         case fromUrl(String)
         
         var path: String{
             switch self {
-            case .root:
-                return "http://assets-production.applicaster.com/applicasteremployees/israel_team/Elad/assignment/link_json.json"
+            case .applicastercom:
+                return "https://assets-production.applicaster.com/applicaster-employees/israel_team/Elad/assignment/link_json.json"
+            case .aws:
+                return "https://assets-production.applicaster.com.s3.amazonaws.com/applicaster-employees/israel_team/Elad/assignment/link_json.json"
             case .fromUrl(let url):
                 return url
             }
@@ -28,12 +31,41 @@ class HTTPLayer{
     }
     
     func request(at endpoint: Endpoint, completion: @escaping (Data?, URLResponse?, Error?)-> Void){
-        
+        self.urlSession = URLSession(configuration: .default, delegate: self, delegateQueue: .none)
         let urlString = endpoint.path
+//        print(urlString)
         guard let url = URL(string: urlString) else {return }
+//        print(url)
         let task = urlSession.dataTask(with: url) { (data, response, error) in
             completion(data, response, error)
         }
         task.resume()
+    
+        
+    }
+    
+    func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+    
+        if challenge.previousFailureCount > 0 { completionHandler(Foundation.URLSession.AuthChallengeDisposition.cancelAuthenticationChallenge, nil)
+        } else if let serverTrust = challenge.protectionSpace.serverTrust {
+            completionHandler(Foundation.URLSession.AuthChallengeDisposition.useCredential, URLCredential(trust: serverTrust))
+        } else {
+            return
+        }
+        
+//        guard challenge.previousFailureCount == 0 else {
+//            challenge.sender?.cancel(challenge)
+//            // Inform the user that the user name and password are incorrect
+//            completionHandler(.cancelAuthenticationChallenge, nil)
+//            return
+//        }
+//
+//        if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust
+//            // and if so, obtain the serverTrust information from that protection space.
+//            && challenge.protectionSpace.serverTrust != nil
+//            && challenge.protectionSpace.host == "assets-production.applicaster.com.s3.amazonaws.com" {
+//            let proposedCredential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
+//            completionHandler(URLSession.AuthChallengeDisposition.useCredential, proposedCredential)
+//        }
     }
 }

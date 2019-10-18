@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5E21FD9523502AB5005131BC /* WebPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E21FD9423502AB5005131BC /* WebPageViewController.swift */; };
-		5E21FD982350302D005131BC /* WebPageVCExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E21FD972350302D005131BC /* WebPageVCExtensions.swift */; };
+		5E21FD982350302D005131BC /* WebPageViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E21FD972350302D005131BC /* WebPageViewControllerExtensions.swift */; };
 		5E9A4FEA234FF0CA00E07BAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A4FE9234FF0CA00E07BAF /* AppDelegate.swift */; };
 		5E9A4FEC234FF0CA00E07BAF /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A4FEB234FF0CA00E07BAF /* RootViewController.swift */; };
 		5E9A4FEF234FF0CA00E07BAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E9A4FED234FF0CA00E07BAF /* Main.storyboard */; };
@@ -24,7 +24,9 @@
 		5E9A501F2350035500E07BAF /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A501E2350035500E07BAF /* VideoTableViewCell.swift */; };
 		5E9A50212350035F00E07BAF /* LinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A50202350035F00E07BAF /* LinkTableViewCell.swift */; };
 		5E9A5023235014BC00E07BAF /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 5E9A5022235014BC00E07BAF /* Fonts */; };
+		5EB0A98823597827008B1674 /* UISearchResultsUpdatingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB0A98723597827008B1674 /* UISearchResultsUpdatingExtension.swift */; };
 		5ED729AC2350385F00D5CB05 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ED729AB2350385F00D5CB05 /* WebKit.framework */; };
+		5EE7C12D235963AF00B66FB0 /* MediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE7C12C235963AF00B66FB0 /* MediaItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +41,7 @@
 
 /* Begin PBXFileReference section */
 		5E21FD9423502AB5005131BC /* WebPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPageViewController.swift; sourceTree = "<group>"; };
-		5E21FD972350302D005131BC /* WebPageVCExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPageVCExtensions.swift; sourceTree = "<group>"; };
+		5E21FD972350302D005131BC /* WebPageViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPageViewControllerExtensions.swift; sourceTree = "<group>"; };
 		5E9A4FE6234FF0CA00E07BAF /* ApplicasteriOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApplicasteriOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E9A4FE9234FF0CA00E07BAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E9A4FEB234FF0CA00E07BAF /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -59,7 +61,9 @@
 		5E9A501E2350035500E07BAF /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		5E9A50202350035F00E07BAF /* LinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkTableViewCell.swift; sourceTree = "<group>"; };
 		5E9A5022235014BC00E07BAF /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
+		5EB0A98723597827008B1674 /* UISearchResultsUpdatingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchResultsUpdatingExtension.swift; sourceTree = "<group>"; };
 		5ED729AB2350385F00D5CB05 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		5EE7C12C235963AF00B66FB0 /* MediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				5E9A5017234FF74700E07BAF /* Post.swift */,
+				5EE7C12C235963AF00B66FB0 /* MediaItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -208,7 +213,8 @@
 			isa = PBXGroup;
 			children = (
 				5E9A501C235001A100E07BAF /* PostsTableViewControllerExtension.swift */,
-				5E21FD972350302D005131BC /* WebPageVCExtensions.swift */,
+				5E21FD972350302D005131BC /* WebPageViewControllerExtensions.swift */,
+				5EB0A98723597827008B1674 /* UISearchResultsUpdatingExtension.swift */,
 			);
 			path = VCExtensions;
 			sourceTree = "<group>";
@@ -323,11 +329,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EE7C12D235963AF00B66FB0 /* MediaItem.swift in Sources */,
 				5E9A5016234FF30500E07BAF /* Int-Extensions.swift in Sources */,
 				5E9A501A234FFEE500E07BAF /* RootViewModel.swift in Sources */,
 				5E9A4FEC234FF0CA00E07BAF /* RootViewController.swift in Sources */,
 				5E9A4FEA234FF0CA00E07BAF /* AppDelegate.swift in Sources */,
-				5E21FD982350302D005131BC /* WebPageVCExtensions.swift in Sources */,
+				5E21FD982350302D005131BC /* WebPageViewControllerExtensions.swift in Sources */,
+				5EB0A98823597827008B1674 /* UISearchResultsUpdatingExtension.swift in Sources */,
 				5E9A5018234FF74700E07BAF /* Post.swift in Sources */,
 				5E9A50212350035F00E07BAF /* LinkTableViewCell.swift in Sources */,
 				5E9A5011234FF27000E07BAF /* HTTPLayer.swift in Sources */,
@@ -499,6 +507,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7F8AA547EL;
 				INFOPLIST_FILE = "$(SRCROOT)/ApplicasteriOS/SupportingFiles/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -517,6 +526,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7F8AA547EL;
 				INFOPLIST_FILE = "$(SRCROOT)/ApplicasteriOS/SupportingFiles/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

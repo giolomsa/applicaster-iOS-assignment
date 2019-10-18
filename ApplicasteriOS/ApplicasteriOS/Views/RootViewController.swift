@@ -15,6 +15,7 @@ class RootViewController: UIViewController {
     //MARK:- Variables/Constants
     let viewModel = RootViewModel()
     var selectedPostUrlString: String?
+    let searchController = UISearchController(searchResultsController: nil)
     
     //MARK:- IBOutlets
     @IBOutlet weak var postsTableView: UITableView!
@@ -25,12 +26,17 @@ class RootViewController: UIViewController {
         self.title = "Posts"
         postsTableView.delegate = self
         postsTableView.dataSource = self
+        postsTableView.tableHeaderView = searchController.searchBar
         
-//        let httpLayer = HTTPLayer()
-//        let networking = APIClient(httpLayer: httpLayer)
+        searchController.searchResultsUpdater = self
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        
         
         manageObservers()
-        viewModel.loadPosts()
+        DispatchQueue.global(qos: .background).async {
+            self.viewModel.loadPosts()
+        }
     }
     
     //add observers
@@ -39,7 +45,9 @@ class RootViewController: UIViewController {
     }
     
     @objc private func updateUIFromViewModel(){
-        
+        DispatchQueue.main.async {
+            self.postsTableView.reloadData()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
