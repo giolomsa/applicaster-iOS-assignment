@@ -21,7 +21,7 @@
 		5E9A501A234FFEE500E07BAF /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A5019234FFEE500E07BAF /* RootViewModel.swift */; };
 		5E9A501D235001A100E07BAF /* PostsTableViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A501C235001A100E07BAF /* PostsTableViewControllerExtension.swift */; };
 		5E9A501F2350035500E07BAF /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A501E2350035500E07BAF /* VideoTableViewCell.swift */; };
-		5E9A50212350035F00E07BAF /* LinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A50202350035F00E07BAF /* LinkTableViewCell.swift */; };
+		5E9A50212350035F00E07BAF /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A50202350035F00E07BAF /* PostTableViewCell.swift */; };
 		5E9A5023235014BC00E07BAF /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 5E9A5022235014BC00E07BAF /* Fonts */; };
 		5EB0A98823597827008B1674 /* UISearchResultsUpdatingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB0A98723597827008B1674 /* UISearchResultsUpdatingExtension.swift */; };
 		5EB0A98A23598CDF008B1674 /* String-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB0A98923598CDF008B1674 /* String-Extensions.swift */; };
@@ -60,7 +60,7 @@
 		5E9A5019234FFEE500E07BAF /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		5E9A501C235001A100E07BAF /* PostsTableViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsTableViewControllerExtension.swift; sourceTree = "<group>"; };
 		5E9A501E2350035500E07BAF /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
-		5E9A50202350035F00E07BAF /* LinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkTableViewCell.swift; sourceTree = "<group>"; };
+		5E9A50202350035F00E07BAF /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		5E9A5022235014BC00E07BAF /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
 		5EB0A98723597827008B1674 /* UISearchResultsUpdatingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchResultsUpdatingExtension.swift; sourceTree = "<group>"; };
 		5EB0A98923598CDF008B1674 /* String-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-Extensions.swift"; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				5E9A501E2350035500E07BAF /* VideoTableViewCell.swift */,
-				5E9A50202350035F00E07BAF /* LinkTableViewCell.swift */,
+				5E9A50202350035F00E07BAF /* PostTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -343,7 +343,7 @@
 				5E21FD982350302D005131BC /* WebPageViewControllerExtensions.swift in Sources */,
 				5EB0A98823597827008B1674 /* UISearchResultsUpdatingExtension.swift in Sources */,
 				5E9A5018234FF74700E07BAF /* Post.swift in Sources */,
-				5E9A50212350035F00E07BAF /* LinkTableViewCell.swift in Sources */,
+				5E9A50212350035F00E07BAF /* PostTableViewCell.swift in Sources */,
 				5EB0A98A23598CDF008B1674 /* String-Extensions.swift in Sources */,
 				5E9A5011234FF27000E07BAF /* HTTPLayer.swift in Sources */,
 				5E9A5013234FF2BB00E07BAF /* APIClient.swift in Sources */,

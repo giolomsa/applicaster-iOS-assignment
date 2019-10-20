@@ -17,57 +17,30 @@ extension RootViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let currentPost = self.viewModel.filteredPosts[indexPath.row]
-        
-        switch currentPost.postType{
-        case .link:
-            if let cell = postsTableView.dequeueReusableCell(withIdentifier: "LinkTableViewCell", for: indexPath) as? LinkTableViewCell{
-                
-                let currentPost = self.viewModel.filteredPosts[indexPath.row]
-                cell.updateCell(for: currentPost)
-                cell.tag = indexPath.row
-                
-                let imageUrl = currentPost.mediaGroup?.first?.src ?? "defaultsImageUrl"
-                
-                DispatchQueue.global(qos: .background).async {
-                    self.viewModel.loadImageFromUrl(for: imageUrl, completion: {[weak cell] (image) in
-                        DispatchQueue.main.async {
-                            if cell?.tag == indexPath.row{
-                                cell?.updateImage(set: image)
-                            }
-                        }
-                    })
-                }
-                
-                return cell
-            }else{
-                return UITableViewCell()
-            }
 
-        case .video:
-            if let cell = postsTableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell", for: indexPath) as? VideoTableViewCell{
-                let currentPost = self.viewModel.filteredPosts[indexPath.row]
-                
-                cell.updateCell(for: currentPost)
-                cell.tag = indexPath.row
-                
-                let imageUrl = currentPost.mediaGroup?.first?.src ?? "defaultsImageUrl"
-                
-                DispatchQueue.global(qos: .background).async {
-                    self.viewModel.loadImageFromUrl(for:
-                        imageUrl, completion: {[weak cell] (image) in
-                        DispatchQueue.main.async {
-                            if cell?.tag == indexPath.row{
-                                cell?.updateImage(set: image)
-                            }
+        if let cell = postsTableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as? PostTableViewCell{
+            
+            let currentPost = self.viewModel.filteredPosts[indexPath.row]
+            cell.updateCell(for: currentPost)
+            cell.tag = indexPath.row
+            
+            let imageUrl = currentPost.mediaGroup?.first?.src ?? "defaultsImageUrl"
+            
+            DispatchQueue.global(qos: .background).async {
+                self.viewModel.loadImageFromUrl(for: imageUrl, completion: {[weak cell] (image) in
+                    DispatchQueue.main.async {
+                        if cell?.tag == indexPath.row{
+                            cell?.updateImage(set: image)
                         }
-                    })
-                }
-                
-                return cell
-            }else{
-                return UITableViewCell()
+                    }
+                })
             }
+            
+            cell.playImageView.isHidden = currentPost.postType == .link ? true : false
+            
+            return cell
+        }else{
+            return UITableViewCell()
         }
     }
     

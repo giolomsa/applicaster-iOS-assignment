@@ -8,9 +8,10 @@
 
 import UIKit
 
-class LinkTableViewCell: UITableViewCell {
+class PostTableViewCell: UITableViewCell {
 
     //MARK:- IBOutlets
+    @IBOutlet weak var playImageView: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var postTitleLabel: UILabel!
@@ -22,6 +23,7 @@ class LinkTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         postImageView.layer.cornerRadius = 0.0
+        playImageView.layer.cornerRadius = playImageView.frame.width/2
         activityIndicator.startAnimating()
         postImageView.image = nil
     }
