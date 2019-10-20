@@ -86,7 +86,7 @@ class RootViewModel{
                 apiClient.downloadImage(for: urlString) { (result) in
                     switch result{
                     case .success(let imageData):
-                        image = UIImage(data: imageData)!
+                        image = UIImage(data: imageData) ?? UIImage()
                         self.imageCache.setObject(image, forKey: NSString(string: urlString))
                         print("Image From URL")
                         completion(image)

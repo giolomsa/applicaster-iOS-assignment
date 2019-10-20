@@ -23,7 +23,7 @@ class VideoTableViewCell: UITableViewCell {
     
     func updateCell(for post: Post){
         self.postTitleLabel.text = post.title
-        self.postPublishedLabel.text = post.published.dateStringToLocaleDateString ;#warning("add extension for publish date")
+        self.postPublishedLabel.text = post.published.dateStringToLocaleDateString
     }
     
     func updateImage(set image: UIImage){

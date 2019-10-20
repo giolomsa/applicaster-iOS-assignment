@@ -39,6 +39,7 @@ class RootViewController: UIViewController {
         searchController.dimsBackgroundDuringPresentation = false
         
         manageObservers()
+        
         DispatchQueue.global(qos: .background).async {
             self.viewModel.loadPosts()
         }
