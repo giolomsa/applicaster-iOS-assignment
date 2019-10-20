@@ -8,6 +8,7 @@
 
 import Foundation
 
+//MARK:- Media item Type/Scale enums
 enum MediaItemType: String{
     case image = "image"
     case video = "video"
@@ -25,6 +26,7 @@ class MediaItem: Codable{
     var scale: MediaItemScale
     var key: String
     
+    //MARK:- Coding key enum
     enum CodingKeys:String, CodingKey{
         case src = "src"
         case type = "type"
@@ -32,6 +34,7 @@ class MediaItem: Codable{
         case key = "key"
     }
    
+    //MARK:- encode/decode
     required init(from decoder: Decoder) throws {
         let container =  try decoder.container(keyedBy: CodingKeys.self)
         

@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 extension RootViewController: UITableViewDataSource, UITableViewDelegate{
+    
+    //MARK:- UITableViewDataSource methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.filteredPosts.count
     }
@@ -69,17 +71,18 @@ extension RootViewController: UITableViewDataSource, UITableViewDelegate{
         }
     }
     
+    //MARK:- didSelectRowAt method
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedPost = viewModel.filteredPosts[indexPath.row]
+        self.selectedPost = selectedPost
         
         switch selectedPost.postType{
         case .link:
             print("link")
-                  self.selectedPost = selectedPost
                 performSegue(withIdentifier: "WebPageVCSegue", sender: self)
         case .video:
             print("video")
-//                self.playVideo(urlString: urlString)
+                self.playVideo(urlString: selectedPost.content ?? "defaultVideoLink")
         }
     }
     

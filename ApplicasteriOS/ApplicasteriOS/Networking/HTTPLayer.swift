@@ -52,20 +52,5 @@ class HTTPLayer: NSObject, URLSessionDelegate{
         } else {
             return
         }
-        
-//        guard challenge.previousFailureCount == 0 else {
-//            challenge.sender?.cancel(challenge)
-//            // Inform the user that the user name and password are incorrect
-//            completionHandler(.cancelAuthenticationChallenge, nil)
-//            return
-//        }
-//
-//        if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust
-//            // and if so, obtain the serverTrust information from that protection space.
-//            && challenge.protectionSpace.serverTrust != nil
-//            && challenge.protectionSpace.host == "assets-production.applicaster.com.s3.amazonaws.com" {
-//            let proposedCredential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
-//            completionHandler(URLSession.AuthChallengeDisposition.useCredential, proposedCredential)
-//        }
     }
 }

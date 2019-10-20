@@ -9,6 +9,7 @@
 import Foundation
 
 extension String{
+    // Convert date string to localized date string
     var dateStringToLocaleDateString:String{
         
         let dateFormatter = DateFormatter()

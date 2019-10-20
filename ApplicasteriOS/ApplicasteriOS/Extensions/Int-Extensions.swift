@@ -10,6 +10,7 @@
 import Foundation
 
 extension Int{
+    // HTTPResponce success status code
     public var isSuccessHTTPCode: Bool {
         return 200 <= self && self < 300
     }

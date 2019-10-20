@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension RootViewController: UIScrollViewDelegate{
-    
+    //MARK:- UIScrollViewDelegate method
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pan = scrollView.panGestureRecognizer
         let velocity = pan.velocity(in: scrollView).y

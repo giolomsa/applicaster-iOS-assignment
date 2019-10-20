@@ -75,7 +75,7 @@ class APIClient{
     }
     
     
-    
+    // load image from url string
     func downloadImage(for urlString: String , completion: @escaping(Result<Data>)-> Void){
         
         self.httpLayer.request(at: .fromUrl(urlString)) { (data, response, error) in

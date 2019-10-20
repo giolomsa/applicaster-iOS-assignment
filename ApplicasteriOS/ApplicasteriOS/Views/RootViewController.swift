@@ -23,6 +23,7 @@ class RootViewController: UIViewController {
     @IBOutlet weak var postsTableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    //MARK:- Lifecyle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -32,7 +33,6 @@ class RootViewController: UIViewController {
         
         postsTableView.delegate = self
         postsTableView.dataSource = self
-//        postsTableView.tableHeaderView = searchController.searchBar
         
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
@@ -40,19 +40,31 @@ class RootViewController: UIViewController {
         
         manageObservers()
         
+        //load posts in viewModel
         DispatchQueue.global(qos: .background).async {
             self.viewModel.loadPosts()
         }
     }
     
+    //
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
     }
     
+    //
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         searchController.dismiss(animated: false, completion: nil)
+    }
+    
+    //MARK:- Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? WebPageViewController,
+            segue.identifier == "WebPageVCSegue",
+            let selectedPostUrlString = self.selectedPost{
+            destination.selectedPost = selectedPostUrlString
+        }
     }
     
     //add observers
@@ -60,10 +72,9 @@ class RootViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateUIFromViewModel), name: RootViewModel.postsWereSetNotification, object: nil)
     }
     
-    //
+    //MARK:- CustomUI method
     private func customizeUI(){
         self.searchController.searchBar.tintColor = .white
-//        searchController.searchBar.setImage(UIImage(named: "search"), for: UISearchBar.Icon.search, state: .normal)
         searchController.searchBar.backgroundColor = UIColor.red
         searchController.searchBar.barTintColor = UIColor(displayP3Red: 215/255, green: 57/255, blue: 51/255, alpha: 1.0)
         
@@ -79,6 +90,7 @@ class RootViewController: UIViewController {
         
     }
     
+    //MARK:- class methods
     @objc private func updateUIFromViewModel(){
         DispatchQueue.main.async {
             self.postsTableView.reloadData()
@@ -88,15 +100,6 @@ class RootViewController: UIViewController {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? WebPageViewController,
-            segue.identifier == "WebPageVCSegue",
-            let selectedPostUrlString = self.selectedPost{
-            destination.selectedPost = selectedPostUrlString
-        }
-    }
-    
-    //MARK:- class methods
     func playVideo(urlString: String){
         guard let url = URL(string: urlString) else {
             return
@@ -111,6 +114,7 @@ class RootViewController: UIViewController {
 
     }
 
+    //MARK:- IBActions
     @IBAction func searchButtonTapped(_ sender: UIBarButtonItem) {
         searchController.hidesNavigationBarDuringPresentation = false
             if !searchController.isActive{

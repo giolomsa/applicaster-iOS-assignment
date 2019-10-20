@@ -11,7 +11,7 @@ import UIKit
 import WebKit
 
 extension WebPageViewController: WKUIDelegate, WKNavigationDelegate{
-    
+    //MARK:- WKWebView didCommit method
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         activityIndicator.stopAnimating()
         loadingView.isHidden = true

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension RootViewController: UISearchResultsUpdating{
-    
+    //MARK:- UISearchResultUpdating method
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text, !searchText.isEmpty {
             self.viewModel.filteredPosts = self.viewModel.unfilteredPosts.filter {$0.title.lowercased().contains(searchText.lowercased())}

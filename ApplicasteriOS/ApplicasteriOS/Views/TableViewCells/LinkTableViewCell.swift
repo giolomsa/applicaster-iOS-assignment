@@ -10,12 +10,14 @@ import UIKit
 
 class LinkTableViewCell: UITableViewCell {
 
+    //MARK:- IBOutlets
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var postTitleLabel: UILabel!
     @IBOutlet weak var postPublishedLabel: UILabel!
     @IBOutlet weak var postSummaryTextView: UITextView!
     
+    //MARK:- Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,10 +26,11 @@ class LinkTableViewCell: UITableViewCell {
         postImageView.image = nil
     }
 
+    //MARK:- class methods
     func updateCell(for post: Post){
         self.postTitleLabel.text = post.title
         self.postSummaryTextView.text = post.summary
-        self.postPublishedLabel.text = post.published.dateStringToLocaleDateString ;#warning("add extension for publish date")
+        self.postPublishedLabel.text = post.published.dateStringToLocaleDateString
         
     }
     

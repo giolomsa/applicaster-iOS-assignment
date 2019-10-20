@@ -11,6 +11,7 @@ import WebKit
 
 class WebPageViewController: UIViewController {
 
+    //MARK:- variables/constants
     var selectedPost: Post?
     
     //MARK:- IBOutlets
@@ -18,6 +19,7 @@ class WebPageViewController: UIViewController {
     @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    //MARK:- Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,7 +30,14 @@ class WebPageViewController: UIViewController {
         
         customizeUI()
         loadWebPage()
+        
+        navigationController?.navigationBar.isHidden = false
 }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        navigationController?.navigationBar.isHidden = false
+    }
 
     //MARK:- private methods
     private func loadWebPage(){
@@ -53,6 +62,6 @@ class WebPageViewController: UIViewController {
     }
     
     private func showErrorAlert(){
-        
+        //TODO:- show error alert
     }
 }

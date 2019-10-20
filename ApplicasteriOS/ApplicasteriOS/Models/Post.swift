@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+//
 enum PostType: String{
         case link = "link"
         case video = "video"
@@ -15,6 +15,16 @@ enum PostType: String{
 
 class Post: Codable{
     
+    //MARK:- variables
+    var title: String
+    var summary: String
+    var published: String
+    var mediaGroup: [MediaItem]?
+    var postType: PostType
+    var link: String?
+    var content: String?
+    
+    //MARK:- Coding key enums
     private enum CodingKeys: String, CodingKey {
         
         case type = "type"
@@ -47,17 +57,8 @@ class Post: Codable{
     private enum MediaItemKeys: String, CodingKey{
         case src = "src"
     }
-    
-    ////
 
-    var title: String
-    var summary: String
-    var published: String
-    var mediaGroup: [MediaItem]?
-    var postType: PostType
-    var link: String?
-    var content: String?
-
+    //MARK:- encode/decode
     func encode(to encoder: Encoder) throws {
 
     }
@@ -89,6 +90,7 @@ class Post: Codable{
     }
 }
 
+// helper class
 class PostsContainer: Codable{
     var entry: [Post]?
 }

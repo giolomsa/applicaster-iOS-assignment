@@ -11,16 +11,13 @@ import UIKit
 
 class RootViewModel{
     
-    let httpLayer = HTTPLayer()
-    let apiClient: APIClient
-    
+    //MARK:- variables/constants
+    private let httpLayer = HTTPLayer()
+    private let apiClient: APIClient
     private let imageCache = NSCache<NSString, UIImage>()
-    var filteredPosts = [Post]()
-    var _posts = [Post]()
     
-    init() {
-        apiClient = APIClient(httpLayer: httpLayer)
-    }
+    var filteredPosts = [Post]()
+    private var _posts = [Post]()
     
     static let postsWereSetNotification = Notification.Name.init(rawValue: "gio.lomsa.postsWereSetNotification")
     
@@ -31,11 +28,17 @@ class RootViewModel{
         }
     }
     
+    //
+    init() {
+        apiClient = APIClient(httpLayer: httpLayer)
+    }
     
+    //MARK:- class methods
     func loadPosts(){
         
         //Create operation for downloading posts from server
         let downloadPostsFromServer = BlockOperation{
+            // create dispatch group
             let dispatchGroup = DispatchGroup()
             
             dispatchGroup.enter()
@@ -46,7 +49,6 @@ class RootViewModel{
                 case .success(let posts):
                     self?._posts.append(contentsOf: posts)
                 }
-//                print("posts from Applicaster were set")
                 dispatchGroup.leave()
             }
             
@@ -58,23 +60,22 @@ class RootViewModel{
                 case .success(let posts):
                     self?._posts.append(contentsOf: posts)
                 }
-//                print("posts from AWS were set")
                 dispatchGroup.leave()
             }
             dispatchGroup.wait()
         }
         
         let setPostsOperation = BlockOperation{
-//            print("posts were set to tableview source")
             self.unfilteredPosts = self._posts
         }
-        
+        // sert operation dependencies
         setPostsOperation.addDependency(downloadPostsFromServer)
-        
+        // start operations
         downloadPostsFromServer.start()
         setPostsOperation.start()
     }
     
+    // load image from url string
     func loadImageFromUrl(for urlString: String, completion: @escaping(UIImage)->Void){
         
             var image = UIImage()
