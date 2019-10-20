@@ -1,8 +1,8 @@
 # applicaster-iOS-assignment
 
-The applicarion displays a list of posts coming from two diference JSON feeds.
+The applicarion displays a list of posts from two diference JSON feeds.
 
-Using URLSession application parse JSON, decodes it using Codable protocol and displays posts in UITableView.
+Using URLSession application parses JSON, decodes it using Codable protocol and displays posts in UITableView.
 
 
 ## About technology
